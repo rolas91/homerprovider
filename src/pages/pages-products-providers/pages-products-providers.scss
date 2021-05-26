@@ -1,0 +1,590 @@
+page-pages-products-providers {
+  ion-content {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: #fafbff !important;
+  }
+  .sub-header {
+    width: 100%;
+    padding: 20px;
+    background-color: #fafbff !important;
+    text-align: center;
+    margin-top: 80px;
+    h1 {
+      color: #000;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 600;
+      font-size: 2rem;
+    }
+  }
+  .body-product {
+    button {
+      background-color: #72a9ae;
+      border-radius: 5px;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif !important;
+      padding: 25px !important;
+      width: 230px;
+      border-radius: 20px;
+    }
+    button ion-icon {
+      font-size: 2.8em;
+      margin-right: 10px;
+      font-weight: 900 !important;
+    }
+  }
+  .img {
+    width: inherit;
+    min-height: 20% !important;
+    height: inherit;
+  }
+  .rating {
+    .star-icon {
+      color: #ddd;
+      font-size: 1.5em;
+      position: relative;
+      margin-left: -7px;
+    }
+    .star-icon.full:before {
+      //text-shadow: 0 0 2px rgba(0,0,0,0.7);
+      color: #fde16d;
+      content: "\2605";
+      /* Full star in UTF-8 */
+      position: absolute;
+      left: 0;
+    }
+    .star-icon.half:before {
+      //text-shadow: 0 0 2px rgba(0,0,0,0.7);
+      color: #fde16d;
+      content: "\2605";
+      /* Full star in UTF-8 */
+      position: absolute;
+      left: 0;
+      width: 50%;
+      overflow: hidden;
+    }
+    @-moz-document url-prefix() {
+      /* Firefox Hack :( */
+      .star-icon {
+        font-size: 50px;
+        line-height: 34px;
+      }
+    }
+    margin: 0px;
+  }
+  .title-home-banner {
+    position: absolute;
+    top: 45%;
+    font-size: 35px;
+    width: 100%;
+    color: #000;
+    text-align: center;
+  }
+  button.swiper-pagination-bullet {
+    display: none;
+  }
+  .searchbar-md {
+    background: inherit;
+    padding: 0px;
+  }
+  .btn-filter {
+    width: 40%;
+    background: white;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-weight: bold;
+  }
+  .searchbar-search-icon {
+    background-image: url("../assets/icon/arrow.svg") !important;
+  }
+  .searchbar-search-icon {
+    right: 2px !important;
+  }
+  .searchbar-md .searchbar-input {
+    padding: 6px 45px 6px 10px;
+    text-align: left;
+    color: black;
+  }
+  .searchbar-ios .searchbar-input {
+    color: black;
+  }
+  .searchbar-md .searchbar-search-icon,
+  .searchbar-ios .searchbar-search-icon {
+    left: auto;
+    top: 0px;
+    width: 35px;
+    height: 30px;
+    background-position: center;
+    border-left: 2px solid gray;
+  }
+  .searchbar-has-value .searchbar-search-icon {
+    display: none;
+  }
+  font-family: arial;
+  .scroll-content {
+    padding-bottom: 10px;
+  }
+  .card-md {
+    margin: 0px;
+    width: 100%;
+    border-radius: 20px;
+    background: #ffff !important;
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.03) !important;
+  }
+  .card-md ion-card-content {
+    padding: 0px!important;
+  }
+  .price-list button {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .grid {
+    padding: 20px;
+    img {
+      min-height: $min-product-height;
+    }
+    ion-row {
+      margin: 0;
+      padding: 0 0 0 5px;
+    }
+    ion-col {
+      margin: 0;
+      padding: 5px 5px 0 0;
+    }
+    a[light] {
+      width: 100%;
+      height: 100px;
+    }
+  }
+  .products-listing {
+    .wishlist-button-grid {
+      position: absolute;
+      top: 2px;
+      left: 20px;
+      font-size: 1.5em;
+      margin: 0.4rem -5px;
+    }
+    padding-top: 0;
+    .price-list {
+      margin: 0px;
+      padding-left: 10px;
+      box-shadow: none;
+      ion-label {
+        margin: 0px;
+        font-size: 14px;
+        white-space: inherit;
+      }
+      button {
+        margin: 0px;
+      }
+      .price-regular {
+        color: #1e88e5e6;
+        margin-top: 0px;
+      }
+      .price-special {
+        color: #1e88e5e6;
+        margin-top: 0px;
+      }
+      .price-delete {
+        color: #666;
+        opacity: 60;
+        margin-top: 0px;
+      }
+    }
+    .item-name {
+      box-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.3);
+      background-color: #f9f9f9;
+      padding: 0 0 0 16px;
+      .item.item-block .item-inner {
+        padding-right: 0;
+      }
+    }
+    .row.unlimited-items {
+      flex-wrap: wrap;
+      padding-left: 5px;
+    }
+    .row.unlimited-items .col {
+      flex: none;
+      width: 100%;
+      padding: 5px 5px 0 0;
+    }
+    @media (min-width: 481px) and (max-width: 768px) {
+      .row.unlimited-items .col {
+        width: 33.333%;
+      }
+      ion-col:nth-child(3n + 0) {
+        border-right: none;
+      }
+    }
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .row.unlimited-items .col {
+        width: 25%;
+      }
+      ion-col:nth-child(4n + 0) {
+        border-right: none;
+      }
+    }
+    @media (min-width: 1025px) {
+      .row.unlimited-items .col {
+        width: 20%;
+      }
+      ion-col:nth-child(5n + 0) {
+        border-right: none;
+      }
+    }
+    .item-list {
+      .label {
+        margin-top: 0;
+      }
+      margin: 5px 5px 0 5px;
+      ion-item {
+        box-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.3);
+        padding: 0 0 0 16px;
+      }
+      .stock-list {
+        .out-of-stock-button {
+          position: absolute;
+          top: 2px;
+          left: 0;
+          width: 80px;
+          font-size: 8px;
+          margin: 0.4rem -5px;
+        }
+      }
+      .wishlist-label {
+        position: absolute;
+        right: 14px;
+        top: 2px;
+        padding-left: 0;
+        width: 20%;
+      }
+      .product-label {
+        position: absolute;
+        top: 2px;
+        padding-left: 0;
+        width: 70%;
+      }
+
+      .wishlist-button {
+        float: right;
+        padding: 0;
+        margin: 0;
+        font-size: 1.5em;
+      }
+      .product-name-top {
+        top: 12px;
+        h2 {
+          margin: 2px 0 8px 0;
+          font-size: 14px;
+          font-weight: normal;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width: 70%;
+        }
+      }
+      .price-bottom-list {
+        position: absolute;
+        bottom: 12px;
+        left: inherit;
+        .price-regular {
+          color: #1e88e5e6;
+        }
+        .price-special {
+          color: #1e88e5e6;
+        }
+        .price-delete {
+          color: #666;
+          opacity: 60;
+        }
+      }
+      .bottom-right-button {
+        position: absolute;
+        bottom: 8px;
+        right: 10px;
+        button {
+          margin: 0px;
+          border-radius: 5px;
+        }
+      }
+      .left-padding {
+        padding: 0px;
+      }
+    }
+    .card-background-page {
+      ion-card {
+        position: relative;
+        text-align: center;
+        margin-bottom: 20px;
+        width: 100%!important;
+      }
+      button {
+        background-color: #72a9ae;
+        border-radius: 5px;
+        color: #fff;
+        font-family: Arial, Helvetica, sans-serif !important;
+        padding: 20px !important;
+        width: 100px;
+        border-radius: 20px;
+      }
+
+      #btnround {
+        border-radius: 100% !important;
+        width: 40px;
+        height: 40px;
+        background: #000 !important;
+        color: #fff !important;
+      }
+
+      #btnround ion-icon {
+        margin: 0 auto;
+      }
+
+      .card-title {
+        position: absolute;
+        top: 80%;
+        font-size: 12px;
+        width: 100%;
+        font-weight: 500;
+        color: #fff;
+      }
+      .card-subtitle {
+        font-size: 1em;
+        position: absolute;
+        top: 52%;
+        width: 100%;
+        color: #fff;
+      }
+      .stock {
+        padding: 0;
+        button {
+          position: absolute;
+          top: 2px;
+          right: 0;
+          width: 50%;
+          font-size: 10px;
+          margin: 0.4rem -5px;
+        }
+      }
+      .card-name {
+        .label {
+          font-weight: 800 !important;
+          font-size: 14px;
+          letter-spacing: 0.3px;
+          margin: 20px 20px 0px;
+          float: left;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+      }
+
+    }
+
+  }
+  .category-line{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+  }
+  .category-line span{
+    margin-top: 6px;
+    margin-right: 3px;
+  }
+  .line-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .line-btn span {
+    line-height: 50px;
+    margin-right: -20px;
+  }
+  .bg-blank {
+    background-color: #fafbff !important;
+  }
+
+  .item-md [item-left],
+  .item-md [item-right] {
+    margin: 9px 5px;
+  }
+  .hero-image::after {
+    display: block;
+    position: relative;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0) 0,
+      #666666 100%
+    );
+    margin-top: -150px;
+    height: 150px;
+    width: 100%;
+    content: "";
+  }
+  ion-label {
+    font-size: 14px;
+    white-space: nowrap;
+    font-weight: 600;
+  }
+  .item-background span{
+    margin: 0px 10px 0px;
+    font-family: Arial, Helvetica, sans-serif!important;
+    margin-bottom: 20px!important;
+
+  }
+  .description span p{
+    margin-top: 0;
+    font-size: 12px;
+    font-weight: lighter;
+    font-family: Arial, Helvetica, sans-serif!important;
+    margin: 0px 10px 0px;
+  }
+  .item ion-thumbnail[item-left] {
+    margin: 0px;
+    margin-right: 12px;
+    min-width: 10rem;
+    min-height: 10rem;
+    max-width: 15rem;
+    max-height: 15rem;
+    width: 12rem;
+    height: 12rem;
+  }
+  .item ion-thumbnail img {
+    min-width: 10rem;
+    min-height: 10rem;
+    max-width: 15rem;
+    max-height: 15rem;
+    width: 12rem;
+    height: 12rem;
+  }
+  .max-lines {
+    display: block;
+    /* or inline-block */
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 3.4em;
+    line-height: 1.8em;
+  }
+  .item-ios p {
+    margin: 0 0 2px;
+    font-size: 13px;
+    color: #8e9093;
+  }
+  .item {
+    margin: 0px;
+    padding: 0 12px;
+  }
+  .category {
+    margin: 0;
+    .category-name {
+      box-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.3);
+      background-color: #f9f9f9;
+      padding: 0 0 0 16px;
+    }
+    .item ion-thumbnail {
+      min-width: 5rem;
+      min-height: 5rem;
+      width: 5rem;
+      height: 5rem;
+      margin: 0;
+    }
+    .item ion-thumbnail img {
+      min-width: 5rem;
+      min-height: 5rem;
+      width: 5rem;
+      height: 5rem;
+    }
+    .item {
+      margin: 0 0 3px 0;
+      padding: 0;
+    }
+    ion-label {
+      margin: 8px;
+    }
+    .label-wp {
+      margin: 5px 16px;
+    }
+    .item.item-block .item-inner {
+      padding-right: 8px;
+      border-bottom: 0.55px solid #f9f9f9;
+    }
+    .sub-category {
+      margin: 5px;
+      ion-icon {
+        color: #eaeaea;
+      }
+    }
+  }
+  .filter {
+    .list-header {
+      border-bottom: none;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0;
+      background-color: #f9f9f9;
+      border-top: none;
+      color: #000;
+    }
+    .button {
+      height: 2.8em;
+      border-radius: 4px;
+      font-size: 14px;
+      margin: auto;
+      display: block;
+      width: 98%;
+      margin-top: 5px;
+    }
+    .item {
+      margin: 0px;
+      padding: 0 0 0 20px;
+    }
+    .list {
+      margin: 0;
+    }
+    .list .item-block .item-inner {
+      border-bottom: 0.55px solid #ffffff;
+    }
+    .list-ios > .item-block:last-child,
+    .list-md > .item-block:last-child {
+      border-bottom: 0.55px solid #eeecf3;
+    }
+  }
+  ion-icon[item-left] + .item-inner {
+    margin-left: 0px;
+  }
+  .item-md ion-icon[item-left] + .item-inner,
+  .item-md ion-icon[item-left] + .item-input {
+    margin-left: 0px;
+  }
+  .item-md h2 {
+    margin: 2px 0px;
+    font-size: 1.6rem;
+    font-weight: normal;
+    text-align: left;
+  }
+  .item-ios h2 {
+    margin: 2px 0px;
+    font-size: 1.6rem;
+    font-weight: normal;
+    text-align: left;
+  }
+  .item-ios [item-left] {
+    margin: 0px;
+  }
+  .logo-title  {
+    width: 100%;
+  }
+
+  .logo-title div{
+    width:70%;
+    margin: 0 auto;
+  }
+  .logo-title div img{
+    width: 127px;
+  }
+}

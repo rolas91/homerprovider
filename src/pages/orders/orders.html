@@ -1,0 +1,74 @@
+<!--
+  Generated template for the OrdersPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header style="background-color: #72A9AE;">
+  <ion-navbar color="header">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+      </button>
+      <!-- <ion-title text-wrap text-center *ngIf="post?.post_title">{{post.post_title}} </ion-title> -->
+      <ion-title class="logo-title">
+        <div>
+          <img width="200" src="{{values.homerLogoP}}" />
+        </div>
+      </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div class="sub-header">
+    <h1>Próximos Servicios</h1>
+  </div>
+  <div class="card" *ngFor="let orders of data">
+    <div class="card-body">
+      <div class="row-h2">
+        <h2 class="numbook">
+          <b>Booking # {{orders.id}}</b>
+        </h2>
+        <h2 id="status" style="text-align: center; padding:7px; width: 70%; background-color: #000; color: #ffff; border-radius: 20px; font-size: 10px!important;">
+          <b style="text-transform: uppercase; margin-left: 15px;">{{orders.status}}</b>
+        </h2>
+      </div>
+      <h2 class="orderDate">
+       <b> {{orders.date | date: 'fullDate' }}, {{orders.hour}} </b>
+      </h2>
+      <div class="rectangle">
+        <h2 style="margin:0 auto; width: 80%; font-size: 16px; ">
+          <b>{{orders.productName}}</b>
+        </h2>
+        <h5 style="margin:0 auto; width: 80%">
+          <b>{{orders.location}}</b>
+        </h5>
+      </div>
+      <h2 style="text-align: center;" *ngIf="orders.isCancel != '' ">
+        <b>{{orders.isCancel}}</b>
+      </h2>
+
+
+        <!-- <h2 style="text-align: center;" *ngIf="counts.order == orders.id">
+          <b>{{counts.count | async}}</b>
+        </h2> -->
+
+
+      <div class="row-button">
+        <button (click)="changestate(orders.id,orders.status, orders.onesignal)"  [attr.disabled]= "orders.status === 'SOLICITADO' ? true:null" [attr.hidden]= "orders.status === 'finalizado' ? true:null" text-center ion-button icon-left clear   icon-only class="has-icon icon-only" small text-uppercase >
+          <span *ngIf="orders.status ===  'solicitado'">Aceptar</span>
+          <span *ngIf="orders.status ===  'aceptado'">He llegado</span>
+          <span *ngIf="orders.status ===  'he llegado'">Iniciar</span>
+          <span *ngIf="orders.status ===  'iniciado'">Finalizar</span>
+        </button>
+        <button (click)="changestatecancel(orders.id, orders.onesignal)" [attr.hidden]= "orders.status === 'finalizado' ? true:null" text-center ion-button icon-left clear color="button-color" icon-only class="has-icon icon-only" small text-uppercase >
+          Cancelar
+        </button>
+      </div>
+      <button (click)="openchat(orders.id)"  text-center ion-button icon-left clear color="button-color" icon-only class="has-icon icon-only" small text-uppercase >
+        Chat
+      </button>
+      <button (click)="openOrdersDetail()"  text-center ion-button icon-left clear color="button-color" icon-only class="has-icon icon-only" small text-uppercase >
+        Ver detalles
+      </button>
+    </div>
+  </div>
+</ion-content>

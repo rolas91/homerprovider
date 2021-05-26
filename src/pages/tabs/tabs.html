@@ -1,0 +1,24 @@
+<!-- <ion-tabs class="tabs-islogged" *ngIf="values.isLoggedIn">
+  <ion-tab [root]="productListPage" tabIcon="md-home"></ion-tab>
+  <ion-tab [root]="Home" tabIcon="md-search"></ion-tab>
+  <ion-tab [root]="CartPage"  tabIcon="md-cart"></ion-tab>
+  <ion-tab [root]="WishlistPage" tabIcon="md-heart"></ion-tab>
+  <ion-tab [root]="AccountPage" tabIcon="md-person"></ion-tab>
+</ion-tabs>
+<ion-tabs *ngIf="!values.isLoggedIn">
+  <ion-tab [root]="productListPage" tabIcon="md-home"></ion-tab>
+  <ion-tab [root]="Home" tabIcon="md-search"></ion-tab>
+  <ion-tab [root]="CartPage" tabIcon="md-cart"></ion-tab>
+</ion-tabs> -->
+
+<ion-tabs class="tabs-islogged" *ngIf="values.isLoggedIn">
+  <ion-tab [root]="OrdersVendor" tabIcon="reorder"></ion-tab>
+  <ion-tab [root]="BookingVendor" tabIcon="md-calendar"></ion-tab>
+  <ion-tab [root]="test"  tabIcon="md-cart"></ion-tab>
+  <ion-tab [root]="AccountPage" tabIcon="md-person"></ion-tab>
+</ion-tabs>
+<ion-tabs *ngIf="!values.isLoggedIn">
+  <ion-tab [root]="productListPage" tabIcon="md-home"></ion-tab>
+  <ion-tab [root]="Home" tabIcon="md-search"></ion-tab>
+  <ion-tab [root]="CartPage" tabIcon="md-cart"></ion-tab>
+</ion-tabs>

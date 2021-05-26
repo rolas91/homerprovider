@@ -1,0 +1,70 @@
+page-category-service {
+  ion-content {
+    background: #fafbff !important;
+    .card2 {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.03);
+      width: 100%;
+      margin: 10px auto;
+
+    }
+    .sub-header {
+      width: 100%;
+      padding: 20px;
+      background-color: #fafbff !important;
+      text-align: center;
+      margin-top: 70px;
+      h1 {
+        color: #000;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 600;
+        font-size: 2rem;
+      }
+    }
+
+    h2 {
+      margin: 20px 0 10px 16px;
+      font-size: 18px;
+    }
+    h3 {
+      font-size: 15px;
+      margin: 5px 16px 8px 16px;
+      color: #222;
+      line-height: 1.6;
+    }
+    p {
+      line-height: 1.6;
+      text-indent: 0px;
+      font-size: 14px;
+      text-align: justify;
+      margin: 14px 16px 16px;
+      font-weight: 500;
+    }
+
+    .row-btn {
+      width: 100%;
+      text-align: center;
+      margin-top: 120px;
+      button {
+        background-color: #000;
+        color: #fff;
+        font-family: Arial, Helvetica, sans-serif !important;
+        padding: 30px;
+        width: 300px;
+        border-radius: 20px;
+      }
+    }
+  }
+  .logo-title  {
+    width: 100%;
+  }
+
+  .logo-title div{
+    width:80%;
+    margin: 0 auto;
+  }
+  .logo-title div img{
+    width: 127px;
+  }
+}

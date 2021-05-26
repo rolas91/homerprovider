@@ -1,0 +1,260 @@
+<ion-header style="background-color: #72A9AE;">
+  <ion-navbar color="header">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title class="logo-title">
+      <div>
+        <img width="200" src="{{values.homerLogoP}}" />
+      </div>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <!-- <div class="card2"> -->
+    <ion-list>
+    <form #f="ngForm" >
+        <!-- <div   item-left style="margin-left:16px; margin-right: 16px; display: inline-flex;">
+          <img tappable *ngFor="let item of form.images; let i = index;" src="{{item.src}}" style="width: 80px; height: 80px; padding: 3px; display: inline; border: 1px solid #f5fdff" (click)="replaceImage(i)">
+          <div class="spinner"><ion-spinner *ngIf="uploadingImageSpinner" name="circles" class="add-image-icon"></ion-spinner></div>
+          <ion-icon *ngIf="!uploadingImageSpinner" color="medium" name="add-circle-outline" class="add-image-icon" (click)="picker()"></ion-icon>
+        </div> -->
+        <!-- *ngIf="service.options.vendors_write_product_fields?.includes('images')" -->
+        <div   item-left style="margin-left:16px; margin-right: 16px; display: inline-flex;">
+          <img tappable *ngFor="let item of form.images; let i = index;" src="{{item.src}}" style="width: 80px; height: 80px; padding: 3px; display: inline; border: 1px solid #f5fdff" (click)="replaceImage(i)">
+          <div class="spinner"><ion-spinner *ngIf="uploadingImageSpinner" name="circles" class="add-image-icon"></ion-spinner></div>
+          <ion-icon *ngIf="!uploadingImageSpinner" color="medium" name="add-circle-outline" class="add-image-icon" (click)="picker()"></ion-icon>
+        </div>
+
+        <!-- <button (click)="upload2()" ion-button>Take Pic & Upload </button> -->
+
+        <ion-item>
+          <!-- <ion-label>Nombre servicio</ion-label> -->
+           <ion-input placeholder="Nombre servicio" type="text"  [(ngModel)]="name" name="product_name"></ion-input>
+        </ion-item>
+
+        <ion-item>
+           <ion-textarea placeholder="Descripcion del servicio"  [(ngModel)]="description" name="description"></ion-textarea>
+        </ion-item>
+
+        <ion-item>
+           <ion-textarea placeholder="Descripcion corta del servicio" [(ngModel)]="short_description" name="short_description"></ion-textarea>
+        </ion-item>
+
+        <ion-item>
+           <ion-input placeholder="Costo Base" type="text" [(ngModel)]="cost" name="cost"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input placeholder="Costo por Bloque" type="number" [(ngModel)]="block_cost" name="block_cost"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input placeholder="Visualización de costo" type="number" [(ngModel)]="display_cost" name="display_cost"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Tipo de servicio</ion-label>
+          <ion-select  [(ngModel)]="categoriesValue" (ngModelChange)="onChange($event)" name="categories" interface="action-sheet">
+            <ion-option *ngFor="let item of getCategory" [value]="{id:item.id, name:item.name}">{{item.name}}</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <div style="display: contents; max-width: 350px;">
+          <ion-chip *ngFor="let item of categories" >
+            <ion-label color="secondary">{{item.name}}</ion-label>
+            <button ion-button clear color="dark" (click)="deleteTipoServicio(item.id)">
+              <ion-icon name="close-circle"></ion-icon>
+            </button>
+          </ion-chip>
+        </div>
+
+
+        <!-- <ion-item>
+          <ion-label>Select</ion-label>
+          <ion-select class="custom-options" [(ngModel)]="categoryValue"  interface="action-sheet" name="category">
+            <ion-select-option *ngFor="let item of getCategory" [value]="item.name">{{item.name}}</ion-select-option>
+          </ion-select>
+        </ion-item> -->
+        <!-- <ion-item>
+            <ion-select style="max-width: 80%;"
+          [(ngModel)]="categoryValue" >
+            <div *ngFor="let item of getCategory"">
+                <ion-option
+                [value]="item.name">
+                  {{item.name}}
+                </ion-option>
+            </div>
+          </ion-select>
+        </ion-item> -->
+
+        <br>
+        <div class="card2">
+          <!-- <ion-item>
+            <ion-label>Select</ion-label>
+            <ion-select class="custom-options" [(ngModel)]="selectDay"  interface="action-sheet" name="selDay">
+              <ion-option value="{{item.name}}" *ngFor="let item of days" >{{item.name}}</ion-option>
+            </ion-select>
+          </ion-item> -->
+
+          <ion-item>
+            <ion-label>Fecha Inicia</ion-label>
+            <ion-datetime displayFormat="YYYY-MM-DD" display-timezone="utc" [(ngModel)]="from_date" name="iniDate"></ion-datetime>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Fecha Finaliza</ion-label>
+            <ion-datetime displayFormat="YYYY-MM-DD" display-timezone="utc" [(ngModel)]="to_date" name="endDate"></ion-datetime>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Hora Inicia</ion-label>
+            <ion-datetime displayFormat="HH:mm" display-timezone="utc" [(ngModel)]="from" name="iniHour" minuteValues="0,30"></ion-datetime>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Hora Finaliza</ion-label>
+            <ion-datetime displayFormat="HH:mm" display-timezone="utc" [(ngModel)]="to" name="endHour" minuteValues="0,30"></ion-datetime>
+          </ion-item>
+          <ion-item>
+            <button ion-button (click)="addAvailability()">
+              <ion-icon name="save"></ion-icon> Agregar Disponibilidad
+            </button>
+          </ion-item>
+          <ion-grid >
+            <ion-row class="ion-align-items-center">
+              <ion-col style="background-color:#76a7ab; color: #fff; margin-right: 1px;">
+                 <div style="margin: 0 auto;  text-align: center">Rango</div>
+              </ion-col>
+              <ion-col style="background-color:#76a7ab; color: #fff;">
+                <div style="margin: 0 auto;text-align: center;">To</div>
+              </ion-col>
+              <ion-col style="background-color:#76a7ab; color: #fff;  margin-left: 1px;">
+                <div style="margin: 0 auto;  border:1px;"></div>
+              </ion-col>
+            </ion-row>
+            <ion-row class="ion-align-items-center" *ngFor="let item of availability"  style="border-bottom: 1px solid #ddd;">
+                <ion-col style="margin-right: 1px;">
+                  <div style="margin: 0 auto; width: 100%;">
+                    <span>{{item.from_date}}</span>
+                    <span>{{item.from}}</span>
+                  </div>
+              </ion-col>
+              <ion-col>
+                <div style="margin: 0 auto; width: 100%;">
+                    <span>{{item.to_date}}</span>
+                    <span>{{item.to}}</span>
+                </div>
+              </ion-col>
+              <ion-col style="margin-right: 1px;">
+                <div style="margin: 0 auto; width: 100%; text-align: center;">
+                  <button
+                  ion-button
+                  (click)="deleteAvailability(item.from_date)"
+                  class="has-icon icon-only button" style="height: 1.0em!important; width: 0.1em!important;">
+                    <ion-icon class="ion-ios-close item-icon"></ion-icon>
+                  </button>
+                </div>
+              </ion-col>
+           </ion-row>
+          </ion-grid>
+          <div>
+            <div *ngIf="navParams.data.id" style="margin:0 auto; width: 220px;">
+              <button ion-button style="font-family: 'Courier New', Courier, monospace;" (click)="updateProduct()">Update Servicio</button>
+            </div>
+            <div *ngIf="!navParams.data.id" style="margin:0 auto; width: 220px;">
+              <button ion-button style="font-family: 'Courier New', Courier, monospace;" (click)="sendProduct()">Guardar Servicio</button>
+            </div>
+          </div>
+
+          <!-- <div style="width: 100%; margin-top: 20px; background: #76a7ab; text-align: center; padding: 10px; color: white; cursor: pointer;">
+
+          </div> -->
+        </div>
+
+
+
+
+      <!-- <div class="availability">
+        <div><span>Tipo Rango</span></div>
+        <div><span>Rango</span></div>
+      </div>
+      <div class="availability2">
+        <ion-item><ion-input placeholder="Date Range" type="text" name="product_name"></ion-input></ion-item>
+        <ion-item>
+          <ion-datetime
+            placeholder="Desde" displayFormat="HH:mm" name="desde"
+            value="{{desde | date:'yyyy-MM-dd'}}"></ion-datetime>
+        </ion-item>
+      </div>
+     <div style="width: 100%; margin-top: 20px; background: #76a7ab; text-align: center; padding: 10px; color: white; cursor: pointer;">
+        <span>Guardar servicio</span>
+     </div> -->
+     <!-- <ion-grid >
+       <ion-row>
+         <ion-col>
+          <button  style="font-size: x-small;font-weight: bold; color:#999; padding:5px; margin-top: 10px;" text-uppercase
+          >{{"Agregar Rango" | translate}}
+          </button>
+         </ion-col>
+       </ion-row>
+       <ion-row class="ion-align-items-center">
+         <ion-col style="background-color:#76a7ab; color: #fff; margin-right: 1px;">
+            <div style="margin: 0 auto; width: 50%;">Tipo Rango</div>
+         </ion-col>
+         <ion-col style="background-color:#76a7ab; color: #fff;">
+           <div style="margin: 0 auto; width: 50%; border:1px;">Rango</div>
+        </ion-col>
+       </ion-row>
+       <ion-row class="ion-align-items-center">
+        <ion-col style="margin-right: 1px;">
+           <div style="margin: 0 auto; width: 100%;">
+            <ion-item>
+              <ion-label>Select</ion-label>
+              <ion-select class="custom-options" [(ngModel)]="selectDay"  interface="action-sheet" name="day">
+                <ion-select-option *ngFor="let item of days" [value]="item.name">{{item.name}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div style="margin: 0 auto; width: 100%;">
+            <ion-item>
+              <ion-label>Select</ion-label>
+              <ion-datetime displayFormat="HH:mm" display-timezone="utc"></ion-datetime>
+            </ion-item>
+          </div>
+       </ion-col>
+      </ion-row>
+     </ion-grid> -->
+     </form>
+    </ion-list>
+  <!-- </div> -->
+
+  <!-- <div class="card tabs-container">
+    <nav #tabs_control class="tabs-control">
+      <a href="#info">Informacion</a>
+      <a href="#details">Detalle</a>
+      <a href="#lorem">Lorem Ipsum</a>
+      <div id="indicator" #indicator class="indicator"></div>
+    </nav>
+    <div  #tabs class="tabs">
+      <div class="container">
+        <div  #tab class="tab" id="info">
+          <p>Lorem ipsum dolor sit amet consectetur
+             adipisicing elit. Nostrum, facilis vitae dolores consectetur nesciunt reiciendis impedit mollitia, odio, aut quibusdam quos eius earum odit reprehenderit illo ad autem velit tempore!</p>
+        </div>
+        <div  class="tab" id="details">
+          <p>Lorem ipsum dolor sit amet consectetur
+             adipisicing elit. Nostrum, facilis vitae dolores consectetur nesciunt reiciendis impedit mollitia, odio, aut quibusdam quos eius earum odit reprehenderit illo ad autem velit tempore!</p>
+        </div>
+        <div  class="tab" id="lorem">
+          <p>Lorem ipsum dolor sit amet consectetur
+             adipisicing elit. Nostrum, facilis vitae dolores consectetur nesciunt reiciendis impedit mollitia, odio, aut quibusdam quos eius earum odit reprehenderit illo ad autem velit tempore!</p>
+        </div>
+      </div>
+    </div>
+  </div> -->
+</ion-content>

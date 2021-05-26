@@ -1,0 +1,57 @@
+<!--
+  Generated template for the OrdersPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header  style="background-color: #72A9AE;">
+  <ion-navbar color="header">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+      </button>
+      <!-- <ion-title text-wrap text-center *ngIf="post?.post_title">{{post.post_title}} </ion-title> -->
+      <ion-title class="logo-title">
+        <div>
+          <img width="200" src="{{values.homerLogoP}}" />
+        </div>
+      </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div class="sub-header">
+    <h1>Servicios Pasados</h1>
+  </div>
+  <div class="card" *ngFor="let order of orders">
+    <div class="card-body">
+      <div class="row-h2">
+        <h2 class="numbook">
+          <b>Booking # {{order.id}}</b>
+        </h2>
+        <h2 id="status" style="text-align: center; padding:7px; width: 70%; color: #000; border-radius: 20px; font-size: 10px!important; font-family: Arial, Helvetica, sans-serif !important;
+                        font-weight: 700 !important;">
+          <b style="text-transform: uppercase; margin-left: 15px;">{{order.status}}</b>
+        </h2>
+      </div>
+      <h2 class="orderDate">
+        <b> {{order.date | date: 'fullDate' }}, {{order.hour}} </b>
+      </h2>
+      <div class="rectangle">
+        <h2 style="margin:0 auto; width: 80%; font-size: 16px;">
+          <b>{{order.productName}}</b>
+        </h2>
+        <h5 style="margin:0 auto; width: 80%;">
+          <b>{{order.location}}</b>
+        </h5>
+      </div>
+      <div class="rectangle-inverso" *ngIf="order.status == 'cancelado' && order.isCancel != '' ">
+        <h2>
+          <b>{{order.isCancel}}</b>
+        </h2>
+        <!-- <img src="{{values.cancel}}" alt=""> -->
+      </div>
+      <!-- <button  text-center ion-button icon-left clear color="button-color" icon-only class="has-icon icon-only" small text-uppercase >
+        Ver detalles
+      </button> -->
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,84 @@
+<!--
+  Generated template for the ServicesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="settings-header">
+  <ion-navbar color="header">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+      </button>
+      <!-- <ion-title text-wrap text-center *ngIf="post?.post_title">{{post.post_title}} </ion-title> -->
+      <ion-title >
+          <img style="max-width: 150px;" src="{{values.avatar}}" />
+      </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div class="sub-header">
+    <h1>{{title}}</h1>
+  </div>
+  <ion-spinner *ngIf="!orders.length" name="crescent"></ion-spinner>
+  <div *ngIf="orders.length">
+    <div class="card" *ngFor="let item of orders[0]">
+      <div class="card-body">
+        <h2>
+          <b>{{"Details" | translate}} :
+          </b>{{"Booking" | translate }} # {{item.bookingId}}
+        </h2>
+
+        <h2>
+          <b>{{"Booked Product" | translate}} :
+          </b> <label style="color:#1e88e5e6;"> {{item.booked_product}}</label>
+        </h2>
+
+        <h2>
+          <b>{{"Booked By" | translate}} :
+          </b> {{item.booked_by}}
+        </h2>
+
+        <h2>
+          <b>{{"Start Date" | translate}} :
+          </b> {{item.start_date}}
+        </h2>
+
+        <h2>
+          <b>{{"End Date" | translate}} :
+          </b> {{item.end_date}}
+        </h2>
+
+        <h2>
+          <b>{{"Customer" | translate}} :
+          </b> {{item.billing_address.first_name}} {{item.billing_address.last_name}}, {{item.billing_address.address_1}}, {{item.billing_address.address_2}}, {{item.billing_address.city}}, {{item.billing_address.state}}, {{item.billing_address.country}}, {{item.billing_address.postcode}}
+        </h2>
+        <h2>
+          <b>{{"Status" | translate}} :
+          </b> {{item.statusbooking}}
+        </h2>
+        <div class="row-button">
+          <!-- <button *ngIf="item.row_actions.confirm" text-center ion-button icon-left clear no-margin color="button-color" icon-only class="has-icon icon-only" small text-uppercase (click)="confirm(item.bookingId)">
+            <ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle">
+            </ion-icon>
+            {{"Aceptar Trabajo" | translate}}
+          </button> -->
+          <button   text-center ion-button icon-left clear   icon-only class="has-icon icon-only" small text-uppercase (click)="getBookingDetails(item.order_id)" >
+            <!-- <ion-icon name="ios-eye">
+            </ion-icon> -->
+            {{"Iniciar Servicio" | translate}}
+          </button>
+          <button  text-center ion-button icon-left clear color="button-color" icon-only class="has-icon icon-only" small text-uppercase (click)="unconfirm(item.bookingId)">
+            <!-- <ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle">
+            </ion-icon> -->
+            {{"cancelar Servicio" | translate}}
+          </button>
+        </div>
+        <!-- <button *ngIf="item.row_actions.edit" text-center ion-button icon-left clear no-margin  icon-only class="has-icon icon-only" small text-uppercase (click)="getBookingDetails(item.order_id)">
+          <ion-icon name="ios-eye">
+          </ion-icon>
+          {{"Ver detalles del servicio" | translate}}
+        </button> -->
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "Homer Provider",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="header">
+    <button ion-button menuToggle>
+      <ion-icon name="menu">
+      </ion-icon>
+    </button>
+    <ion-title >
+      <img  (click)="gohome();" style="max-width: 150px;" src="{{values.avatar}}" />
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content #pageTop>
+  <!-- <div class="button-bar">
+    <a class="button button-positive">1</a>
+    <a class="button button-assertive">2</a>
+    <a class="button button-energized">3</a>
+    <a class="button">4</a>
+  </div> -->
+  <!-- https://dev.digitalfactory.tech/demos/homer/wp-admin/admin-ajax.php?action=mstoreapp-redirectToDashboard&username=bonod49459?showElement=false -->
+ 
+  <iframe id="iframeHomer" class="iframe-full" src="https://dev.digitalfactory.tech/demos/homer/dashboard?showElement=false" style="height: 100%; width: 100%;" #myIframe></iframe>
+
+</ion-content>

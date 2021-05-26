@@ -1,0 +1,78 @@
+page-orders-detail {
+  ion-content {
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+  .mapboxgl-map {
+    z-index: -10;
+  }
+  .card {
+    width: 85%;
+    margin: 0 auto;
+    margin-top: -80px;
+    padding: 10px;
+    border-radius: 20px !important;
+    background: #fff;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    font-family: Arial, Helvetica, sans-serif;
+    .card-body {
+      padding: 10px;
+      height: auto;
+      overflow: initial;
+      background: #fff;
+      h2 {
+        b {
+          font-family: Arial, Helvetica, sans-serif;
+          font-weight: 600;
+        }
+        font-size: 13px;
+
+        ul {
+          list-style: none;
+        }
+        ul li:before {
+          content: "•";
+          font-size: 5rem; /* or whatever */
+          display: inline-block;
+          height: 100%;
+          padding-right: 10px;
+          vertical-align: middle;
+          color: #76a7ab;
+        }
+      }
+
+      .row-h2 {
+        display: flex;
+        align-items: center;
+        h2 {
+          width: 100%;
+        }
+      }
+      .row-button {
+        display: flex;
+        justify-content: space-evenly;
+
+        button {
+          background-color: #76a7ab;
+          border-radius: 5px;
+          color: #fff;
+          font-family: Arial, Helvetica, sans-serif;
+          padding: 5px;
+          margin: 5px;
+          width: 200px;
+        }
+      }
+      > button {
+        padding: 15px;
+        background-color: #76a7ab;
+        color: #fff;
+        border-radius: 5px;
+        font-weight: 600;
+        font-family: Arial, Helvetica, sans-serif;
+        margin-top: 10px;
+        width: 100%;
+      }
+    }
+  }
+}

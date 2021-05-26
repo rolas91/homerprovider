@@ -1,0 +1,27 @@
+<ion-header class="settings-header">
+    <ion-navbar color="header"> 
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <!-- <ion-title text-wrap text-center *ngIf="post?.post_title">{{post.post_title}} </ion-title> -->
+        <ion-title >
+            <img  (click)="gohome();" style="max-width: 150px;" src="{{values.avatar}}" />
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="post" padding>
+    <div class="sub-header">
+        <h1 *ngIf="title">{{ title }}</h1>
+    </div>
+    <ion-spinner *ngIf="!post" name="crescent"> </ion-spinner>
+    <ion-card style="margin-top: 100px;">
+        <!-- <ion-card-header>
+            <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+            <ion-card-title>Card Title</ion-card-title>
+        </ion-card-header> -->
+        <ion-card-content *ngIf="post"> 
+          <div [innerHTML]="post"></div>
+        </ion-card-content>
+      </ion-card>
+   
+</ion-content>

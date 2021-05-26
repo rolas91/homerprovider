@@ -1,0 +1,187 @@
+<div *ngIf="showSplash" class="splash">
+  <div class="splashSpinner" style="background: url({{values.logoMenu}});"></div>
+</div>
+
+<ion-menu type="overlay" [content]="content" side="{{this.values?.settings?.app_dir}}">
+  <div class="menu-toolbar">
+    <ion-toolbar color="header">
+      <!-- <div class="profile-image">
+        <img src="{{values.logoMenu}}">
+        <div class="tittle-homer-provider">
+            Homer Proveedor
+        </div>
+      </div> -->
+
+      <ion-row class="user-auth">
+        <ion-col col-5 class="profile-image" >
+          <img src="{{values.homerCircle}}">
+        </ion-col>
+        <ion-col col-7 style="align-self: center;font-weight: bold;padding: 0; ">
+          <strong class="lbl-proveedor" *ngIf="!values.isLoggedIn">
+          Homer Proveedor
+          </strong>
+          <strong class="lbl-proveedor" *ngIf="values.isLoggedIn">
+            <h4 class="playername"> {{values.customerName}}</h4>
+          </strong>
+        </ion-col>
+      </ion-row>
+
+      <!--button ion-button full menuClose clear color="light" class="button-customername" *ngIf="values.isLoggedIn">
+        <strong>{{values.customerName}}
+        </strong>
+      </button>
+      <button ion-button full menuClose clear color="light" class="button-welcome" *ngIf="!values.isLoggedIn">
+        <strong>{{"Welcome" | translate}}
+        </strong>
+      </button-->
+    </ion-toolbar>
+  </div>
+  <ion-content class="sidemenugrad">
+    <ion-list class="menu-items-single" no-margin>
+
+      <!-- <div *ngIf="service.categories" class="category-name">
+        <ion-item tappable full menuClose *ngFor="let item of service.mainCategories" (click)="getCategory(item.id, item.slug, item.name)">
+          <ion-icon item-right class="ion-ios-arrow-forward item-icon">
+          </ion-icon>
+          <span [innerHTML]="item.name"></span>
+        </ion-item>
+      </div> -->
+
+    </ion-list>
+    <ion-list class="menu-items">
+      <!-- <ion-item tappable menuClose (click)="shop()">
+        <ion-icon item-left name="home"></ion-icon>
+        {{"Inicio"}}
+      </ion-item> -->
+      <ion-item tappable menuClose (click)="dashboard()" *ngIf="values.isLoggedIn">
+        <ion-icon  name="home" item-left>
+        </ion-icon>
+        {{"Inicio" | translate}}
+      </ion-item>
+      <ion-item tappable menuClose (click)="account()" *ngIf="values.isLoggedIn">
+        <ion-icon  name="contact" item-left>
+        </ion-icon>
+        {{"Account" | translate}}
+      </ion-item>
+       <!-- chat -->
+       <!-- <ion-item tappable menuClose (click)="openchat()" >
+        <ion-icon  name="contact" item-left>
+        </ion-icon>
+        {{"Chat" | translate}}
+      </ion-item> -->
+      <!-- chat -->
+      <ion-item tappable menuClose (click)="login()" *ngIf="!values.isLoggedIn">
+        <ion-icon name="person" item-left>
+        </ion-icon>{{"Acceder" | translate}}
+      </ion-item>
+      <ion-item tappable menuClose (click)="register()" *ngIf="!values.isLoggedIn">
+        <ion-icon item-left ios="ios-create" md="md-create">
+        </ion-icon>
+        {{"Register" | translate}}
+      </ion-item>
+      <!-- <ion-item tappable menuClose (click)="address()" *ngIf="values.isLoggedIn">
+        <ion-icon item-left name="locate">
+        </ion-icon>{{"Address" | translate}}
+      </ion-item> -->
+      <!-- <ion-item tappable menuClose (click)="order()" *ngIf="values.isLoggedIn">
+        <ion-icon item-left name="reorder">
+        </ion-icon>{{"Your Orders" | translate}}
+      </ion-item>
+      <ion-item tappable menuClose (click)="wishlist()" *ngIf="values.isLoggedIn">
+        <ion-icon name="heart" item-left>
+        </ion-icon>{{"Wishlist" | translate}}
+      </ion-item>
+      <ion-item tappable menuClose (click)="cart()">
+        <ion-icon ios="ios-cart" md="md-cart" item-left>
+        </ion-icon>
+        {{"Carrito" | translate}}
+      </ion-item>  -->
+      <!-- <ion-item tappable menuClose (click)="contact()">
+        {{"Contact Us" | translate}}
+        <ion-icon name="mail" item-left></ion-icon>
+      </ion-item>
+      <ion-item tappable menuClose *ngIf="values.data?.pages?.terms && values.data?.pages?.terms != '0'"
+        (click)="post(values.data?.pages?.terms)">
+        <ion-icon name="paper" item-left></ion-icon>
+        {{"Terms & Conditions" | translate}}
+      </ion-item> -->
+
+      <!-- <ion-item tappable menuClose no-line (click)="rateApp()">
+        <ion-icon name="thumbs-up" item-left></ion-icon>
+        {{"Rate App" | translate}}
+      </ion-item> -->
+
+
+      <ion-list *ngIf="values.isLoggedIn">
+        <ion-item *ngIf="values.vendor">
+          <label style="font-weight: bold;" for="">{{"Proveedor"}}</label>
+        </ion-item>
+        <!-- <ion-item tappable menuClose [href]="">
+          <ion-icon item-left name="people-outline">
+          </ion-icon>{{"My profile" | translate}}
+        </ion-item>
+        <ion-item tappable menuClose [href]="">
+          <ion-icon item-left name="people-outline">
+          </ion-icon>{{"Edit Profile" | translate}}
+        </ion-item>
+        <ion-item tappable menuClose [href]="">
+          <ion-icon item-left name="people-outline">
+          </ion-icon>{{"Ajustes de la tienda" | translate}}
+        </ion-item> -->
+        <ion-item tappable menuClose (click)="pagesProductsProviders()" *ngIf="values.isLoggedIn">
+          <ion-icon item-left name="briefcase">
+          </ion-icon>{{"Servicios" | translate}}
+        </ion-item>
+        <ion-item tappable menuClose (click)="mycategories()" *ngIf="values.isLoggedIn">
+          <ion-icon item-left name="list">
+          </ion-icon>{{"Categorias de servicios" | translate}}
+        </ion-item>
+        <ion-item tappable menuClose (click)="orderVendor()" *ngIf="values.vendor">
+          <ion-icon item-left name="people">
+          </ion-icon>{{"Customer Orders" | translate}}
+        </ion-item>
+        <!-- deshabilito booking para mientras -->
+        <!-- <ion-item tappable menuClose (click)="bookingVendor()" *ngIf="values.vendor">
+          <ion-icon item-left ios="ios-calendar" md="md-calendar">
+          </ion-icon>{{"Bookings" | translate}}
+        </ion-item> -->
+        <!-- <ion-item tappable menuClose (click)="test()" *ngIf="values.vendor">
+          <ion-icon item-left name="cart">
+          </ion-icon>Membresia
+        </ion-item> -->
+
+        <ion-item tappable menuClose
+        (click)="support()">
+          <ion-icon name="paper" item-left></ion-icon>
+          {{"Soporte" | translate}}
+        </ion-item>
+
+
+      <ion-item tappable menuClose no-line (click)="shareApp()">
+        <ion-icon name="share" item-left></ion-icon>
+        {{"Share App" | translate}}
+      </ion-item>
+
+        <ion-item tappable menuClose (click)="logout()" *ngIf="values.isLoggedIn">
+          <ion-icon item-left name="md-log-out">
+          </ion-icon>{{"Logout" | translate}}
+        </ion-item>
+      </ion-list>
+      <!-- <ion-item>
+        <ion-icon style="background-color: #e8453c" name="globe" item-left></ion-icon>
+        <ion-label>
+          {{"SelectLanguage" | translate}}
+        </ion-label>
+        <ion-select [(ngModel)]="Languages" (ngModelChange)="setLang()">
+          <ion-option value="english">{{"Eglish" | translate}} </ion-option>
+          <ion-option value="spanish">{{"Spanish" | translate}} </ion-option>
+        </ion-select>
+      </ion-item> -->
+    </ion-list>
+    <br>
+    <br>
+    <br>
+  </ion-content>
+</ion-menu>
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false">
+</ion-nav>

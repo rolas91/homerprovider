@@ -1,0 +1,35 @@
+<ion-header style="background-color: #72A9AE;">
+  <ion-toolbar color="header">
+    <button ion-button menuToggle >
+      <ion-icon >
+        <img class="logo-login" src="{{values.iconMenu}}">
+      </ion-icon>
+    </button>
+    <ion-title class="logo-title">
+      <div>
+        <img width="200" src="{{values.homerLogoP}}" />
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content  padding >
+  <div class="sub-header">
+    <h1>Mis Servicios</h1>
+  </div>
+  <ion-list *ngIf="service.categories">
+    <ion-item *ngFor="let item of service.mainCategories"  class="card2">
+      <ion-thumbnail item-left>
+        <img src="{{item.image.src}}" />
+      </ion-thumbnail>
+      <ion-label  class="heading text-center" style="font-size: 18px; font-weight: 900;">
+        {{item.name}}
+      </ion-label>
+
+      <ion-checkbox item-right color="dark" (click)="addServicio($event,item.id)"></ion-checkbox>
+
+    </ion-item>
+  </ion-list>
+  <div class="row-btn">
+    <button ion-button  (click)="updateCategory()">Actualiza Tus Servicios</button>
+  </div>
+</ion-content>

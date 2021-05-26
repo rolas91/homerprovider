@@ -1,0 +1,51 @@
+<ion-header style="background-color: #72A9AE;">
+  <ion-toolbar color="header">
+    <button ion-button menuToggle >
+      <ion-icon >
+        <img class="logo-login" src="{{values.iconMenu}}">
+      </ion-icon>
+    </button>
+    <ion-title class="logo-title">
+      <div>
+        <img width="200" src="{{values.homerLogoP}}" />
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="page-pages-support" padding [content]="content">
+  <div class="sub-header">
+    <h1>Soporte</h1>
+  </div>
+  <!-- <ion-card style="margin-top: 100px;">
+    <ion-card-content *ngIf="post">
+
+    </ion-card-content>
+  </ion-card> -->
+  <ion-list  *ngIf="post" no-lines>
+      <ion-item tappable menuClose *ngIf="values.data?.pages?.about && values.data?.pages?.about != '0'"
+        (click)="post(values.data?.pages?.about,'Acerca de Nosotros')">
+        {{"About Us" | translate}}
+        <ion-icon name="ios-information-circle" item-left></ion-icon>
+      </ion-item>
+
+
+      <ion-item tappable menuClose *ngIf="values.data?.pages?.about && values.data?.pages?.privacy != '0'"
+        (click)="post(values.data?.pages?.privacy, 'Politicas de Privacidad')" class="bg-green">
+        {{"Politica de privacidad" | translate}}
+        <ion-icon name="ios-lock" item-left></ion-icon>
+      </ion-item>
+
+
+      <ion-item tappable menuClose *ngIf="values.data?.pages?.about && values.data?.pages?.terms != '0'"
+        (click)="post(values.data?.pages?.terms, 'Terminos y Condiciones')">
+        {{"Terminos & Condiciones" | translate}}
+        <ion-icon name="ios-bookmarks" item-left></ion-icon>
+      </ion-item>
+
+      <ion-item tappable menuClose (click)="contact()">
+        {{"Contacta con nosotros" | translate}}
+        <ion-icon name="ios-mail" item-left></ion-icon>
+      </ion-item>
+
+  </ion-list>
+</ion-content>

@@ -1,0 +1,44 @@
+.order-details {
+  .address-send {
+    width: 80% !important;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    // border-radius: 20%;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  }
+  .container-line {
+    display: flex;
+    width: 80% !important;
+    margin: 0 auto;
+    margin-bottom: 20px !important;
+    // border-radius: 20%!important;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  }
+  ion-item {
+    padding: 0;
+  }
+  scroll-content {
+    padding-bottom: 52px;
+  }
+  .item-divider {
+    padding: 0;
+    color: $side-heading-color;
+    background-color: #f9f9f9;
+  }
+  .label {
+    margin: 8px 8px 8px 16px;
+    font-size: 15px;
+  }
+  .item h2 {
+    margin: 5px 0;
+    font-size: 15px;
+    font-weight: normal;
+  }
+  .item-ios.item-block .item-inner {
+    padding-right: 8px;
+    border-bottom: none;
+  }
+  ion-item-group {
+    font-size: 18px;
+  }
+}
